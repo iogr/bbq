@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center">
+  <h1><%= @user.name %></h1>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <p class="buffer-top">
+    <%= link_to "Редактировать профиль", edit_user_path(@user),
+                class: 'btn btn-default' %>
+  </p>
+</div>

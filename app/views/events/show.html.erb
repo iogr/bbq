@@ -1,8 +1,25 @@
-<div class="text-center">
-  <h1><%= @user.name %></h1>
+<div class="event">
+  <div class="event-info row">
+    <div class="col-md-12">
+      <%= content_tag 'div', '', class: 'event-background',
+                      style: "background-image: url(#{asset_path('event.jpg')})" %>
 
-  <p class="buffer-top">
-    <%= link_to "Редактировать профиль", edit_user_path(@user),
-                class: 'btn btn-default' %>
-  </p>
+      <div class="event-info-inner row">
+        <div class="col-md-6">
+          <div class="event-description">
+            <h1><%= @event.title %></h1>
+            <h3><%= @event.datetime %></h3>
+            <h3><small><%= link_to @event.address,
+                                   "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
+            <p><%= @event.description %></p>
+          </div>
+
+          <div class="buffer-top">
+            <%= link_to 'Изменить', edit_event_path(@event),
+                        class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.background {
+    background: rgba(76, 175, 80, 0.3);
+    backdrop-filter: brightness(0.7);
+}
+
 .buffer-top {
     margin-top: 20px;
 }
@@ -39,7 +44,8 @@
     background: transparent;
     padding: 0;
     overflow: hidden;
-    border-radius: 5px;
+    border-color: black;
+    border-radius: 10px;
 }
 
 .thumbnail h3 {

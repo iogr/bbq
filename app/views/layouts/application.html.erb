@@ -36,9 +36,19 @@
         <a class="navbar-brand" href="#"></a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "The end of the world", "/events/2"  %></li>
-            <li><%= link_to "Megaparty", "/events/1"  %></li>
-            <li><%= link_to "The end of the world", "/events/2"  %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to 'Профиль', current_user %></li>
+              <li><%= link_to 'Выйти', destroy_user_session_path,
+                              method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Войти', new_user_session_path %></li>
+              <li><%= link_to 'Зарегистрироваться',
+                              new_user_registration_path %></li>
+            <% end %>
+
+<!--            <li><%#= link_to "* The end of the world", "/events/2"  %></li>-->
+<!--            <li><%#= link_to "* Megaparty", "/events/1"  %></li>-->
+<!--            <li><%#= link_to "* The end of the world", "/events/2"  %></li>-->
           </ul>
         </div>
       </div>

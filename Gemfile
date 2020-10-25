@@ -10,6 +10,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jquery-rails'
 gem 'listen'
 # gem 'therubyracer'
+#
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'

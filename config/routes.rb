@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   resources :events
   resources :users, only: [:show, :edit, :update]
+
+  # resources :users do
+  #   post :unlock, :on => :user
+  # end
 end

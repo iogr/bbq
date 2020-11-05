@@ -34,4 +34,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email)
   end
+
+  def unlock
+    user = User.find(params[:id])
+    user.unlock_access!
+    redirect_to users_path
+  end
 end

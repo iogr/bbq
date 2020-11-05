@@ -36,4 +36,7 @@ ru:
     attributes:
       user:
         name: Имя
-
+  devise:
+    registrations:
+      edit:
+        unhappy: "Раздосадованы?"

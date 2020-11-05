@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+ru:
+  activerecord:
+    attributes:
+      user:
+        name: Имя
+

@@ -6,4 +6,7 @@ ru:
   devise:
     registrations:
       edit:
-        unhappy: "Раздосадованы?"
+        unhappy: Раздосадованы?
+  event:
+    title: Название
+

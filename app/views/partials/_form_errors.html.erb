@@ -3,7 +3,7 @@
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
+      <%= I18n.t("devise.form_partial.errors.mistake", :count => errors.count) %>
     </div>
 
     <ul>

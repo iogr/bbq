@@ -9,10 +9,10 @@ class User < ApplicationRecord
   before_validation :set_name, on: :create
   after_validation :sanitized_username, on: :update
 
-  private
-
-  def set_name
-    self.name = "Твой юзер №#{rand(10000)}" if self.name.blank?
+  def valid_name
+    # pry.binding
+    # "123"
+    name.to_s
   end
 
   def sanitized_username

@@ -12,7 +12,7 @@ class User < ApplicationRecord
   def valid_name
     # pry.binding
     # "123"
-    name.to_s
+    name
   end
 
   def sanitized_username

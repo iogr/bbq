@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   before_validation :set_name, on: :create
 
-  after_validation :set_default_name
+  after_validation :set_default_name, on: :update
 
   def set_default_name
     self.name = self.email[/.+(?=@.+)/] if self.name.length > MAXIMUM_NAME_LENGTH

@@ -9,4 +9,8 @@ ru:
         unhappy: Раздосадованы?
   event:
     title: Название
+    button:
+      destroy: Удалить
+      change: Изменить
+      are_you_sure: Вы уверены?
 

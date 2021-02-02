@@ -2,13 +2,17 @@
   <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">

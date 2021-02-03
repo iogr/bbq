@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
     end
   end
 
+
   # DELETE /comments/1
   def destroy
     message = { notice: I18n.t('controllers.comments.destroyed') }

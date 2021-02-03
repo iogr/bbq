@@ -18,7 +18,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'pry-rails'
+  # gem 'pry-rails'
   gem 'sqlite3', '~> 1.4'
   gem 'byebug'
   gem 'factory_bot_rails'

@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   # Событие принадлежит юзеру
   belongs_to :user
 
+  has_many :comments, dependent: :destroy
+
   # Валидируем юзера на присутствие. В Rails 5 связи
   # валидируются по умолчанию
   validates :user, presence: true

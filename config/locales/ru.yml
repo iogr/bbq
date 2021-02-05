@@ -34,6 +34,8 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
 
-controller:
-  subscriptions:
-    created: '123 123'
+  self_subscription: 'Вы не можете подписаться на собственное событие'
+
+  controller:
+    subscriptions:
+      created: '123 123'

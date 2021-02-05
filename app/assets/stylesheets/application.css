@@ -33,9 +33,8 @@
 
 /* Avatars for users & events */
 .img-icon, .img-icon-small {
-    height: 50px;
+    height: 100px;
     width: auto;
-    border-radius: 50%;
 }
 
 /* Thumbnails for events/index */

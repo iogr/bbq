@@ -7,12 +7,15 @@ class UsersController < ApplicationController
   # Задаем объект @user для шаблонов и экшенов
   before_action :set_current_user, except: [:show]
 
+  # GET /users/1
   def show
   end
 
+  # GET /users/1/edit
   def edit
   end
 
+  # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'

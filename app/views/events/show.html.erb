@@ -27,9 +27,20 @@
     </div>
   </div>
 
+  <div class="event-info">
+    <div class="col-md-12">
+      <div class="event-map">
+        <div id="map" data-address="<%= @event.address %>" class="event-map2">
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="col-md-8">
     <div class="event-comments buffer-top">
       <div class="buffer-both">
+        <h4>Comments:</h4>
         <%= render partial: 'comments/comment',
                    collection: @event.comments %>
       </div>
@@ -38,36 +49,29 @@
 
   <div class="col-md-4">
     <div class="event-owner">
-      <h4>Зовет:</h4>
+      <h4>Who calls:</h4>
       <p><%= render partial: 'users/user', object: @event.user %></p>
     </div>
     <div class="event-subscriptions">
-      <h4>Пойдут:</h4>
-      <div>
-        <p>
-          <%= render partial: 'subscriptions/subscription',
-                     collection: @event.subscriptions.except(@new_subscription) %>
-        </p>
-      </div>
+      <% if @event.subscriptions.persisted.empty? %>
+        <p>None going</p>
+      <% else %>
+        <h4>Will go:</h4>
+        <div>
+          <%= render( partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription)) %>
+        </div>
+      <% end %>
     </div>
-    <div class="event-subscription-form">
-      <h4>Я пойду:</h4>
-      <div>
-        <%= render partial: 'subscriptions/form', locals: {
-          subscription: @new_subscription || @event.subscriptions.build
-        } %>
+
+    <% unless current_user_can_edit?(@event) %>
+      <div class="event-subscription-form">
+        <h4>Subscribe:</h4>
+        <div>
+          <%= render partial: 'subscriptions/form',
+                     locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
-</div>
-
-<div class="event-info">
-  <div class="col-md-12">
-    <div class="event-map">
-      <div id="map" data-address="<%= @event.address %>" class="event-map2">
-        &nbsp;
-      </div>
-    </div>
-  </div>
 </div>

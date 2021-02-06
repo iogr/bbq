@@ -51,9 +51,6 @@ class EventsController < ApplicationController
 
   private
 
-  def authenticate_user!
-  end
-
   def set_current_user_event
     @event = current_user.events.find(params[:id])
   end

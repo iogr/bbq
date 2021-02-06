@@ -2,24 +2,30 @@ ru:
   activerecord:
     attributes:
       user:
-        name: Имя
+        name: 'Имя'
   devise:
     registrations:
       edit:
-        unhappy: Раздосадованы?
+        unhappy: 'Раздосадованы?'
   event:
-    title: Название
+    title: 'Название'
     button:
-      destroy: Удалить
-      change: Изменить
-      are_you_sure: Вы уверены?
+      destroy: 'Удалить'
+      change: 'Изменить'
+      are_you_sure: 'Вы уверены?'
+    errors:
+      models:
+        subscriptions:
+          attributes:
+            base:
+              self_subscription: 'Вы не можете подписаться на собственное событие'
+              email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
 
   controllers:
     comments:
       destroyed: 'Комментарий удален'
       created: 'Ваш комментарий добавлен'
       error: 'Ошибка с комментарием'
-    comments:
       comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
     subscriptions:
@@ -33,8 +39,16 @@ ru:
     error: 'Подписка/отписка не сработала'
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              self_subscription: 'Вы не можете подписаться на собственное событие'
+              email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
 
   self_subscription: 'Вы не можете подписаться на собственное событие'
+  email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
 
   controller:
     subscriptions:

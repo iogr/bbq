@@ -1,4 +1,4 @@
-class Subscription < ActiveRecord::Base
+class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user
 
@@ -13,8 +13,8 @@ class Subscription < ActiveRecord::Base
 
   # Для конкретного event_id один юзер может подписаться только один раз (если юзер задан)
   # Или один email может использоваться только один раз (если анонимная подписка)
-  validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
-  validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
+  validates :user, uniqueness: { scope: :event_id}, if: -> { user.present? }
+  validates :user_email, uniqueness: { scope: :event_id}, unless: -> { user.present? }
   validate :search_user_by_email, unless: -> { user.present? }
   validate :self_subscription, if: -> { user.present? }
 
@@ -39,12 +39,14 @@ class Subscription < ActiveRecord::Base
   end
 
   def self_subscription
-    errors.add(:base, :self_subscription) if event.user == user
+    # errors.add(:base, :self_subscription) if event.user == user
+    errors.add(:user_email, I18n.t('self_subscription')) if event.user == user
   end
 
   def search_user_by_email
     if User.find_by(email: user_email).present?
-      errors.add(:base, :email_used, email: user_email)
+        # errors.add(:base, :email_used, email: user_email)
+        I18n.t('email_used')
     end
   end
 end

@@ -47,8 +47,8 @@ ru:
               self_subscription: 'Вы не можете подписаться на собственное событие'
               email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
 
-  self_subscription: 'Вы не можете подписаться на собственное событие'
-  email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
+    self_subscription: 'Вы не можете подписаться на собственное событие'
+    email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
 
   controller:
     subscriptions:

@@ -40,7 +40,7 @@ class Subscription < ApplicationRecord
 
   def self_subscription
     # errors.add(:base, :self_subscription) if event.user == user
-    errors.add(:user_email, I18n.t('self_subscription')) if event.user == user
+    errors.add(:base, I18n.t('self_subscription')) if event.user == user
   end
 
   def search_user_by_email

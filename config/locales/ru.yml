@@ -1,5 +1,12 @@
 ru:
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              email_used: 'Пользователь "%{email}" уже зарегистрирован'
+              self_subscription: 'Вы не можете подписаться на собственное событие'
     attributes:
       user:
         name: 'Имя'
@@ -13,13 +20,6 @@ ru:
       destroy: 'Удалить'
       change: 'Изменить'
       are_you_sure: 'Вы уверены?'
-    errors:
-      models:
-        subscriptions:
-          attributes:
-            base:
-              self_subscription: 'Вы не можете подписаться на собственное событие'
-              email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
 
   controllers:
     comments:
@@ -46,10 +46,3 @@ ru:
             base:
               self_subscription: 'Вы не можете подписаться на собственное событие'
               email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
-
-  self_subscription: 'Вы не можете подписаться на собственное событие'
-  email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
-
-  controller:
-    subscriptions:
-      created: '123 123'

@@ -2,13 +2,17 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:destroy]
   before_action :set_event, only: [:create, :destroy]
 
+  helper_method :current_user_can_edit?
+
   # POST /subscription/1
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @new_subscription.save
+    # subscriptions.user_id = Subscription.user_id unless user.present?
+      if @new_subscription.save
       # Если сохранилась, редиректим на страницу самого события
+
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
       # если ошибки — рендерим шаблон события

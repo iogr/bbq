@@ -14,8 +14,7 @@
  *= require_self
  */
 .background {
-    background: rgba(76, 175, 80, 0.3);
-    backdrop-filter: brightness(0.9);
+    background: rgba(187, 206, 182, 1);
 }
 
 .buffer-top {

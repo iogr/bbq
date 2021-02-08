@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_212343) do
     t.string "user_name"
     t.string "user_email"
     t.integer "event_id"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_subscriptions_on_event_id"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_212343) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.string "email", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,5 +61,6 @@ ActiveRecord::Schema.define(version: 2021_02_03_212343) do
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "subscriptions", "events"
   add_foreign_key "subscriptions", "users"
 end

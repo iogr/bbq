@@ -3,8 +3,9 @@ class Event < ApplicationRecord
   belongs_to :user
 
   has_many :comments, dependent: :destroy
-  has_many :subscriptions
-  has_many :subscribers, through: :subscriptions, source: :user
+  # has_many :commentators, through: :comments, source: :user
+  has_many :subscriptions, dependent: :destroy
+  has_many :subscribers, through: :subscriptions, source: :user, dependent: :destroy
 
   # Валидируем юзера на присутствие. В Rails 5 связи
   # валидируются по умолчанию

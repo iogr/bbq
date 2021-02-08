@@ -1,32 +1,35 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_subscription, only: [:destroy]
   before_action :set_event, only: [:create, :destroy]
+  before_action :set_subscription, only: [:destroy]
 
   helper_method :current_user_can_edit?
 
-  # POST /subscription/1
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    # subscriptions.user_id = Subscription.user_id unless user.present?
-      if @new_subscription.save
-      # Если сохранилась, редиректим на страницу самого события
+    message = { alert: I18n.t('controllers.subscriptions.failed_creation') }
 
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
-    else
-      # если ошибки — рендерим шаблон события
-      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+    if @new_subscription.save
+      # Если сохранилась, редиректим на страницу самого события c этим message
+      message = { notice:  I18n.t('controllers.subscriptions.created') }
     end
+
+    # Eсли ошибки — выводим в message
+    if @new_subscription.errors.any?
+      message[:alert] << " " << @new_subscription.errors.full_messages.to_sentence
+    end
+
+    redirect_to @event, message
   end
 
   # DELETE /subscription/1
   def destroy
-    message = {notice: I18n.t('controllers.subscriptions.destroyed')}
+    message = { notice: I18n.t('controllers.subscriptions.destroyed') }
     if current_user_can_edit?(@subscription)
       @subscription.destroy
     else
-      message = {alert: I18n.t('controllers.subscriptions.error')}
+      message = { alert: I18n.t('controllers.subscriptions.error') }
     end
 
     redirect_to @event, message

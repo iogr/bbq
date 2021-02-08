@@ -10,10 +10,25 @@ ru:
     attributes:
       user:
         name: 'Имя'
+        avatar: 'Аватар'
+        password: 'Пароль'
+        new_password: 'Новый пароль'
+        current_password: 'Текущий пароль'
+        password_confirmation: 'Подтверждение пароля'
+      event:
+        title: 'Название'
+        address: 'Место проведения'
+        datetime: 'Дата и время'
+        description: 'Описание'
+      comment:
+        body: 'Комментарий'
+        user_name: 'Имя пользователя'
+
   devise:
     registrations:
       edit:
         unhappy: 'Раздосадованы?'
+
   event:
     title: 'Название'
     button:
@@ -26,12 +41,15 @@ ru:
       destroyed: 'Комментарий удален'
       created: 'Ваш комментарий добавлен'
       error: 'Ошибка с комментарием'
-      comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+      subscribe: 'Подписаться'
     subscriptions:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
+      failed_creation: 'Не удалось подписаться'
+      destroyed: 'Вы отписались'
+      failed_destroy: 'Не удалось отписаться'
 
   subscriptions:
     created: 'Вы подписаны на это событие'

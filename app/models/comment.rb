@@ -10,6 +10,8 @@ class Comment < ApplicationRecord
   # Это поле должно быть, только если не выполняется user.present? (у объекта на задан юзер)
   validates :user_name, presence: true, unless: -> { user.present? }
 
+  scope :persisted, -> { where('id IS NOT NULL') }
+
   def user_name
     if user.present?
       user.name

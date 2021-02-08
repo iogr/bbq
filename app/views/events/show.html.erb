@@ -41,8 +41,18 @@
     <div class="event-comments buffer-top">
       <div class="buffer-both">
         <h4>Comments:</h4>
+<!--        render partial: 'comments/comment',-->
+<!--                   collection: @event.comments-->
+      </div>
+    </div>
+
+    <div class="event-comments buffer-top">
+      <%= render partial: 'comments/form',
+                 locals: { comment: @new_comment || @event.comments.build } %>
+
+      <div class="buffer-both">
         <%= render partial: 'comments/comment',
-                   collection: @event.comments %>
+                   collection: @event.comments.except(@new_comment) %>
       </div>
     </div>
   </div>
@@ -65,7 +75,7 @@
 
     <% unless current_user_can_edit?(@event) %>
       <div class="event-subscription-form">
-        <h4>Subscribe:</h4>
+        <h4><%= I18n.t('controllers.comments.subscribe') %>:</h4>
         <div>
           <%= render partial: 'subscriptions/form',
                      locals: { subscription: @new_subscription || @event.subscriptions.build } %>

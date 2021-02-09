@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :current_user_can_edit?
+  helper_method :selected_event, :selected_event_link
+
+  def selected_event(event)
+    se = Event.where(id: event).map(&:title)
+  end
+
+  def selected_event_link(event)
+    sel = "/events/#{event}"
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(

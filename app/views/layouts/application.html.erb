@@ -51,9 +51,9 @@
         <h3><%= I18n.t('app.side_panel') %></h3>
         <ul class="nav nav-list">
           <li class="nav-header"></li>
-          <li><%= link_to "The End of the World", "/events/2"  %></li>
-          <li><%= link_to "Megaparty", "/events/1"  %></li>
-          <li><%= link_to "The End of the World", "/events/1 "  %></li>
+          <li><%= link_to selected_event(1), selected_event_link(1) %></li>
+          <li><%= link_to selected_event(2), selected_event_link(2) %></li>
+          <li><%= link_to selected_event(3), selected_event_link(3) %></li>
         </ul>
       </div><!--/.well -->
     </div><!--/span-->

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :selected_event, :selected_event_link
 
   def selected_event(event)
-    se = Event.where(id: event).map(&:title)
+    se = Event.where(id: event).map(&:title).join
   end
 
   def selected_event_link(event)

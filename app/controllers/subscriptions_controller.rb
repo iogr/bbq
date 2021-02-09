@@ -12,12 +12,10 @@ class SubscriptionsController < ApplicationController
 
     if @new_subscription.save
       # Если сохранилась, редиректим на страницу самого события c этим message
-      message = { notice:  I18n.t('controllers.subscriptions.created') }
-    end
-
-    # Eсли ошибки — выводим в message
-    if @new_subscription.errors.any?
-      message[:alert] << " " << @new_subscription.errors.full_messages.to_sentence
+      # pry.binding
+      message = { notice: I18n.t('controllers.subscriptions.created') }
+    else
+      message = { alert: @new_subscription.errors.full_messages }
     end
 
     redirect_to @event, message

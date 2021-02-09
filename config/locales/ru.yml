@@ -64,3 +64,5 @@ ru:
             base:
               self_subscription: 'Вы не можете подписаться на собственное событие'
               email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
+  app:
+    side_panel: 'Боковая панель'

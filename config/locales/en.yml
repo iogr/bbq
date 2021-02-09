@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+
+  app:
+    side_panel: 'Side panel'

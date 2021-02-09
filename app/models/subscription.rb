@@ -38,13 +38,13 @@ class Subscription < ApplicationRecord
     end
   end
 
+  private
+
   def self_subscription
     errors.add(:base, :self_subscription) if event.user == user
   end
 
   def search_user_by_email
-    if User.find_by(email: user_email).present?
-        errors.add(:base, :email_used, email: user_email)
-    end
+    errors.add(:base, :email_used, email: user_email) if User.exists?(email: user_email)
   end
 end

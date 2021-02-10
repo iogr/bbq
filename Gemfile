@@ -13,6 +13,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jquery-rails'
 gem 'listen'
 
+gem 'carrierwave'
+gem 'rmagick'
+
 group :production do
   gem 'pg'
 end

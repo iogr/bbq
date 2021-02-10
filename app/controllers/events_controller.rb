@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @new_subscription = @event.subscriptions.build(params[:subscription])
 
     # Болванка модели для формы добавления фотографии
+    # pry.binding
     @new_photo = @event.photos.build(params[:photo])
   end
 

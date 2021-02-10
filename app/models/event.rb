@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   # has_many :commentators, through: :comments, source: :user
   has_many :subscriptions, dependent: :destroy
   has_many :subscribers, through: :subscriptions, source: :user, dependent: :destroy
+  has_many :photos
 
   # Валидируем юзера на присутствие. В Rails 5 связи
   # валидируются по умолчанию
@@ -15,4 +16,8 @@ class Event < ApplicationRecord
   validates :title, presence: true, length: {maximum: 255}
   validates :address, presence: true
   validates :datetime, presence: true
+
+  def visitors
+    (subscribers + [user]).uniq
+  end
 end

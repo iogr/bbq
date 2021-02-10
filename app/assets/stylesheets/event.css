@@ -35,7 +35,7 @@
     color: #e0e0e0;
 }
 
-.event-info-inner {
+.event-info-bottom {
     background:rgba(0, 0, 0, 0.4);
 }
 
@@ -56,6 +56,14 @@
     padding: 0px 40px;
     width: 98%;
     height: 80%;
+}
+
+.event-info-upper {
+    background:rgba(0, 0, 0, 0.4);
+}
+
+.event-info-bottom {
+    background:rgba(0, 0, 0, 0.4);
 }
 
 .users {

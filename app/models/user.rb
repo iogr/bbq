@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :events
   has_many :comments, dependent: :destroy
   has_many :subscriptions
+  has_many :photos, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: MAXIMUM_NAME_LENGTH }
 

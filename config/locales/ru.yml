@@ -7,6 +7,9 @@ ru:
             base:
               email_used: 'Пользователь "%{email}" уже зарегистрирован'
               self_subscription: 'Вы не можете подписаться на собственное событие'
+            photo:
+              photo: 'Фотография'
+        photo: 'Фотография'
     attributes:
       user:
         name: 'Имя'
@@ -50,6 +53,10 @@ ru:
       failed_creation: 'Не удалось подписаться'
       destroyed: 'Вы отписались'
       failed_destroy: 'Не удалось отписаться'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
 
   subscriptions:
     created: 'Вы подписаны на это событие'

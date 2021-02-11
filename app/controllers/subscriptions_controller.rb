@@ -8,15 +8,13 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    message = { alert: I18n.t('controllers.subscriptions.failed_creation') }
-
-    if @new_subscription.save
-      # Если сохранилась, редиректим на страницу самого события c этим message
-      # pry.binding
-      message = { notice: I18n.t('controllers.subscriptions.created') }
-    else
-      message = { alert: @new_subscription.errors.full_messages }
-    end
+    message =
+      if @new_subscription.save
+        # Если сохранилась, редиректим на страницу самого события c этим message
+        { notice: I18n.t('controllers.subscriptions.created') }
+      else
+        { alert: @new_subscription.errors.full_messages }
+      end
 
     redirect_to @event, message
   end

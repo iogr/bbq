@@ -10,6 +10,7 @@ class SubscriptionsController < ApplicationController
 
     message =
       if @new_subscription.save
+        EventMailer.subscription(@event, @new_subscription).deliver_now
         # Если сохранилась, редиректим на страницу самого события c этим message
         { notice: I18n.t('controllers.subscriptions.created') }
       else

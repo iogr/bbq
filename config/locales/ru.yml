@@ -51,7 +51,6 @@ ru:
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
       failed_creation: 'Не удалось подписаться'
-      destroyed: 'Вы отписались'
       failed_destroy: 'Не удалось отписаться'
     photos:
       error: 'Что-то не так с фоткой'
@@ -73,3 +72,29 @@ ru:
               email_used: 'Email: Пользователь "%{email}" уже зарегистрирован'
   app:
     side_panel: 'Боковая панель'
+
+  errors:
+    format: "%{attribute} %{message}"
+    template:
+      body: 'Проблемы возникли со следующими полями:'
+      header:
+        one: "Сохранение не удалось из-за %{count} ошибки"
+        few: "Сохранение не удалось из-за %{count} ошибок"
+        many: "Сохранение не удалось из-за %{count} ошибок"
+        other: "Сохранение не удалось из-за %{count} ошибки"
+
+  event_mailer:
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'

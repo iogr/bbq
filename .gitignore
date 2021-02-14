@@ -16,7 +16,6 @@ config/database.yml
 config/secrets.yml
 .env
 sendgrid.env
-sendgrid.env
 /config/credentials/development.key
 /config/credentials/development.yml.enc
 

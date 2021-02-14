@@ -57,7 +57,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Базовый URL сайта для правильных ссылок в письмах
-  config.action_mailer.default_url_options = {host:'i7k.herokuapp.com', protocol: 'https'}
+  config.action_mailer.default_url_options = { host:'i7k.herokuapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

@@ -10,6 +10,7 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
+      notify_subscribers(@event, @new_photo)
       # Если фотка сохранилась, редиректим на событие с сообщением
       redirect_to @event, notice: I18n.t('controllers.photos.created')
     else
@@ -46,6 +47,19 @@ class PhotosController < ApplicationController
   # Получаем фотографию из базы стандартным методом find
   def set_photo
     @photo = @event.photos.find(params[:id])
+  end
+
+  # Письма all_emails без этого [photo.user.email]
+  def notify_subscribers(event, photo)
+    all_emails =
+      if event.user.email == photo.user.email
+        event.subscriptions.map(&:user_email)
+      else
+        event.subscriptions.map(&:user_email) - [photo.user.email] + [event.user.email]
+      end
+    all_emails.each do |mail|
+      EventMailer.photo(event, photo, mail).deliver_now
+    end
   end
 
   # При создании новой фотографии мы получаем массив параметров photo

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+
   # Девайзовский фильтр, который посылает незалогинившихся юзеров
   # Просматривать профили могут и анонимы
   before_action :authenticate_user!, except: [:show]

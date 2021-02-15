@@ -25,8 +25,10 @@
           <%= f.submit t('.sign_in'), class: "btn btn-primary btn-block" %>
         </div>
       <% end %>
+
+      <div class="devise-links">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>

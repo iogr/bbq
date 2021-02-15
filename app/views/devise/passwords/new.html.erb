@@ -15,8 +15,10 @@
           <%= f.submit t('.send_me_reset_password_instructions'), class: "btn btn-primary btn-block" %>
         </div>
       <% end %>
+
+      <div class="devise-links">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>

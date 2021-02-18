@@ -10,3 +10,7 @@ ru:
           few: 'В вашей форме есть %{count} ошибки:'
           many: 'В вашей форме есть %{count} ошибок:'
           other: 'В вашей форме есть %{count} ошибки:'
+    passwords:
+      edit:
+        send_me_reset_password_instructions: "Отправить"
+        forgot_your_password: "Забыли пароль?"

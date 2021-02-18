@@ -14,3 +14,5 @@ ru:
       edit:
         send_me_reset_password_instructions: "Отправить"
         forgot_your_password: "Забыли пароль?"
+        send_me_reset_password: "Отправить"
+        reset_password: "Отправить"

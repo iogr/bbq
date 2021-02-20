@@ -25,10 +25,6 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  def error404
-    render status: :not_found
-  end
-
   # Если у модели есть юзер и он залогиненный, пробуем у неё взять .event
   # Если он есть, проверяем его юзера на равенство current_user.
   def current_user_can_edit?(model)

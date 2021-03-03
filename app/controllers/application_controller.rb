@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   # Настройка для работы Девайза, когда юзер правит профиль
   # protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   helper_method :current_user_can_edit?
   helper_method :selected_event, :selected_event_link
@@ -33,5 +35,10 @@ class ApplicationController < ActionController::Base
       model.user == current_user ||
         (model.try(:event).present? && model.event.user == current_user)
       )
+  end
+
+  def user_not_authorized
+    flash[:alert] = t('pundit.not_authorized')
+    redirect_to(request.referrer || root_path)
   end
 end

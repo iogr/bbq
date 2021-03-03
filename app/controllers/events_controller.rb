@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: [:show]
-  before_action :set_current_user_event, only: [:edit, :update, :destroy]
+
+  after_action :verify_authorized, only: [:show, :edit, :create, :update, :destroy]
 
   # GET /events
   def index
@@ -10,6 +11,7 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
+    authorize @event
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
 
@@ -20,6 +22,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # GET /events/new
@@ -30,6 +33,7 @@ class EventsController < ApplicationController
   # POST /events
   def create
     @event = current_user.events.build(event_params)
+    authorize @event
 
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
@@ -40,6 +44,8 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
+    authorize @event
+
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
@@ -49,6 +55,7 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
+    authorize @event
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
   end

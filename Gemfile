@@ -11,6 +11,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'twitter-bootstrap-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jquery-rails'
+gem 'pundit', '~> 2.1.0'
 gem 'listen'
 
 gem 'carrierwave'
@@ -26,5 +27,5 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'byebug'
   gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 4.0.1'
 end
-

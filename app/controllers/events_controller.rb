@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: [:show]
+  before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
-  after_action :verify_authorized, only: [:show, :edit, :create, :update, :destroy]
+  after_action :verify_authorized, only: [:destroy]
 
   # GET /events
   def index
@@ -16,7 +17,6 @@ class EventsController < ApplicationController
     @new_subscription = @event.subscriptions.build(params[:subscription])
 
     # Болванка модели для формы добавления фотографии
-    # pry.binding
     @new_photo = @event.photos.build(params[:photo])
   end
 

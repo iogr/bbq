@@ -1,4 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe EventPolicy do
+# policy spec
+RSpec.describe EventPolicy, type: :policy do
 end
